@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title style="font-family: 'href', sans-serif;">ysFu official</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:image" content="ysFu-center.png">
+    <meta property="og:title" content="ysFu Official" style="font-family: 'href', sans-serif;">
+    <meta property="og:description" content="來自Taiwan台灣的鼓手獨奏Project">
+    <style>
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* 将动画应用于背景 */
+        body {
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            background: linear-gradient(90deg, #dddddd, #f7ff8f, #bb81fb, #444444);
+            background-size: 400% 400%;
+            animation: gradientAnimation 5s linear infinite;
+        }
+
+        /* 2*3 */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 20px;
+            height: 150vh;
+        }
+
+        .grid-item {
+            background: #a4a39f;
+            padding: 20px;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .episodes {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            overflow-y: auto;
+        }
+
+        .episode {
+            min-width: max-content;
+            margin-bottom: .8rem;
+            padding: .8rem 1rem;
+            border-radius: 10px;
+            border: 0;
+            background: #191414;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .episode:hover {
+            background: #1Db954;
+        }
+
+        header {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-container {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        img {
+            max-width: 100%;
+            max-height: 100vh;
+            display: block;
+            object-fit: contain;
+        }
+
+        @font-face {
+            font-family: 'href';
+            src: url('superg_.ttf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: SweiSansCJKjp-Regular;
+            src: url(https://cdn.jsdelivr.net/gh/max32002/swei-sans@2.102/WebFont/CJK%20JP/SweiSansCJKjp-Regular.woff2) format("woff2"), url(https://cdn.jsdelivr.net/gh/max32002/swei-sans@2.102/WebFont/CJK%20JP/SweiSansCJKjp-Regular.woff) format("woff");
+        }
+
+        p {
+            font-family: 'SweiSansCJKjp-Regular', sans-serif;
+            color: black;
+            font-weight: bold;
+
+            line-height: 1.6;
+            /* 行距 */
+            word-wrap: break-word;
+            /* 自动换行 */
+            white-space: normal;
+            /* 控制空白和换行 */
+        }
+
+        a {
+            font-family: 'href', sans-serif;
+            color: white;
+            /* 设置超链接为白色 */
+            text-decoration: none;
+            /* 去除下划线 */
+        }
+
+        a:hover {
+            color: #d4d7a9;
+            /* 设置鼠标悬停时的颜色，例如淡白色 */
+        }
+
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(4, 1fr);
+                height: auto;
+            }
+
+            .grid-item {
+                height: 50vh;
+            }
+
+            img {
+                width: 50%;
+                height: auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+
+            .grid-item {
+                height: 40vh;
+            }
+
+            img {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <header>
+            <div class="image-container">
+                <script>
+                    /* 渐变颜色组合  */
+                    const backgrounds = [
+                        // 'linear-gradient(90deg, #f7ff8f, #dddddd, #777777, #bb81fb)',
+                        'linear-gradient(90deg, #dddddd, #f7ff8f, #bb81fb, #444444)',
+                        'linear-gradient(90deg, #ff8fd1, #ffbdae, #fbf783, #81ffdd, #7eaeff, #cb9cff)',
+                        'linear-gradient(90deg, rgb(103 103 94), rgb(185 185 167), rgb(122, 122, 118), rgb(85 85 79), rgb(219 219 207))'
+                    ];
+                    let currentIndex = 0;
+
+                    window.changeBackground = function changeBackground() {
+                        currentIndex = (currentIndex + 1) % backgrounds.length;
+                        document.body.style.background = backgrounds[currentIndex];
+                        document.body.style.backgroundSize = '400% 400%'; /* 扩大背景大小以实现流畅的移动效果 */
+                        document.body.style.animation = 'gradientAnimation 5s linear infinite'; /* 5秒无限循环动画 */
+                    }
+                </script>
+                <img src="ysFu-center-black.png" alt="ysFu center image" width="60%" height="60%"
+                    onclick="changeBackground()">
+
+            </div>
+        </header>
+    </center>
+    <center>
+        <p style="color:black;font-weight:bold;">
+            來自Taiwan台灣的鼓手獨奏Project
+        </p>
+        <p style="color:black;font-weight:bold;">
+            曲風上融合了
+        </p>
+        <p style="color:black;font-weight:bold;">
+            Instrumental、Electronic、Fusion、Jazz、Djent、PostRock、MathRock
+        </p>
+        <p style="color:black;font-weight:bold;">
+            風格則是充斥神秘、現代感等元素
+        </p>
+        <p style="color:black;font-weight:bold;">
+            歡迎共演邀約 ig : <a href="https://www.instagram.com/ysfu_official/">ysFu Official</a>
+        </p>
+    </center>
+
+    <center>
+        <header>
+            <div class="image-container">
+                <img src="transparent.png" alt="ysFu center image" width="30%" height="30%">
+            </div>
+        </header>
+    </center>
+
+    <div class="grid-container">
+        <div class="grid-item">
+            <iframe id="ytplayer" type="text/html"
+                src="https://www.youtube.com/embed/2l0LExE6_cM?autoplay=1&origin=http://example.com"></iframe>
+        </div>
+
+        <div class="grid-item">
+            <!--             <div id="embed-iframe"></div> -->
+            <iframe style="border-radius:12px"
+                src="https://open.spotify.com/embed/artist/1B0P4ANdbWeOUwAu8f7ae3?utm_source=generator&theme=0"
+                width="100%" height="100%" frameBorder="0" allowfullscreen=""
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy">
+            </iframe>
+            <script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
+            <script type="text/javascript">
+                window.onSpotifyIframeApiReady = (IFrameAPI) => {
+                    const element = document.getElementById('embed-iframe');
+                    const options = {
+                        width: '100%',
+                        height: '100%',
+                        uri: 'spotify:artist:1B0P4ANdbWeOUwAu8f7ae3'
+                    };
+                    const callback = (EmbedController) => { };
+                    IFrameAPI.createController(element, options, callback);
+                };
+            </script>
+        </div>
+
+        <div class="grid-item">
+            <iframe src="https://embed.music.apple.com/us/album/vortex/1679537474"
+                allow="encrypted-media; fullscreen; clipboard-write;"></iframe>
+        </div>
+
+        <div class="grid-item">
+            <a href="https://streetvoice.com/zero85258/songs/album/97318209/" target="_blank">
+                <img src="SVTC-Type1-R.png" alt="Song Album" style="border: none;" width="100%" height="100%">
+            </a>
+            <!-- <div style="display: flex; align-items: center;">
+                <div style="display: flex; flex-direction: column; width: 350px; height: 320px; overflow-y: auto;">
+                    <iframe src="https://streetvoice.com/music/embed/?id=678617" scrolling="no" width="300" height="100" frameborder="0" marginheight="0" marginwidth="0"></iframe>
+                    <iframe src="https://streetvoice.com/music/embed/?id=678584" scrolling="no" width="300" height="100" frameborder="0" marginheight="0" marginwidth="0"></iframe>
+                    <iframe src="https://streetvoice.com/music/embed/?id=678586" scrolling="no" width="300" height="100" frameborder="0" marginheight="0" marginwidth="0"></iframe>
+                    <iframe src="https://streetvoice.com/music/embed/?id=678587" scrolling="no" width="300" height="100" frameborder="0" marginheight="0" marginwidth="0"></iframe>
+                    <iframe src="https://streetvoice.com/music/embed/?id=678589" scrolling="no" width="300" height="100" frameborder="0" marginheight="0" marginwidth="0"></iframe>
+                    <iframe src="https://streetvoice.com/music/embed/?id=678590" scrolling="no" width="300" height="100" frameborder="0" marginheight="0" marginwidth="0"></iframe>
+                    <iframe src="https://streetvoice.com/music/embed/?id=678591" scrolling="no" width="300" height="100" frameborder="0" marginheight="0" marginwidth="0"></iframe>
+                    <iframe src="https://streetvoice.com/music/embed/?id=678592" scrolling="no" width="300" height="100" frameborder="0" marginheight="0" marginwidth="0"></iframe>
+                    <iframe src="https://streetvoice.com/music/embed/?id=678593" scrolling="no" width="300" height="100" frameborder="0" marginheight="0" marginwidth="0"></iframe>
+                </div>
+            </div> -->
+        </div>
+        <div class="grid-item">
+
+
+
+            <style>
+                /* 页面样式 */
+                .custom-cube-container {
+                    margin: 0;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background-color: #111;
+                    overflow: hidden;
+                    perspective: 800px;
+                    /* 增加透视效果 */
+                }
+
+                /* 立方体容器 */
+                .custom-cube-container .cube {
+                    position: relative;
+                    width: 100px;
+                    height: 100px;
+                    transform-style: preserve-3d;
+                    transform: rotateX(0deg) rotateY(0deg);
+                    transition: transform 0.2s ease;
+                    /* 增加平滑过渡 */
+                }
+
+                /* 每个面 */
+                .custom-cube-container .face {
+                    position: absolute;
+                    width: 100px;
+                    height: 100px;
+                    border: 2px solid #333;
+                    background: linear-gradient(90deg, #ff8fd044, #ffbdae44, #fbf78344, #81ffdd44, #7eaeff44, #cb9cff44);
+                    /* 渐变颜色组合 */
+                    background-size: 400% 400%;
+                    /* 扩大背景大小以实现流畅的移动效果 */
+                    animation: gradientAnimation 0.5s linear infinite;
+                    /* 5秒无限循环动画 */
+                }
+
+                /* 每个面的位置 */
+                .custom-cube-container .front {
+                    transform: translateZ(50px);
+                }
+
+                .custom-cube-container .back {
+                    transform: rotateY(180deg) translateZ(50px);
+                }
+
+                .custom-cube-container .right {
+                    transform: rotateY(90deg) translateZ(50px);
+                }
+
+                .custom-cube-container .left {
+                    transform: rotateY(-90deg) translateZ(50px);
+                }
+
+                .custom-cube-container .top {
+                    transform: rotateX(90deg) translateZ(50px);
+                }
+
+                .custom-cube-container .bottom {
+                    transform: rotateX(-90deg) translateZ(50px);
+                }
+
+                /* 动态渐变颜色动画 */
+                @keyframes gradientAnimation {
+                    0% {
+                        background-position: 0% 50%;
+                    }
+
+                    50% {
+                        background-position: 100% 50%;
+                    }
+
+                    100% {
+                        background-position: 0% 50%;
+                    }
+                }
+            </style>
+            </head>
+
+            <body>
+                <!-- 自定义立方体容器 -->
+                <div class="custom-cube-container">
+                    <div class="cube">
+                        <div class="face front"></div>
+                        <div class="face back"></div>
+                        <div class="face right"></div>
+                        <div class="face left"></div>
+                        <div class="face top"></div>
+                        <div class="face bottom"></div>
+                    </div>
+                </div>
+
+                <script>
+                    const cube = document.querySelector('.cube');
+                    let startX, startY, currentX = 0, currentY = 0, rotateX = 0, rotateY = 0;
+                    let autoRotateX = 0, autoRotateY = 0;
+                    let isDragging = false;
+                    let autoRotateInterval;
+
+                    // 初始化自动旋转
+                    function startAutoRotate() {
+                        autoRotateInterval = setInterval(() => {
+                            if (!isDragging) {
+                                autoRotateX += 1.2; // 控制X轴自转速度
+                                autoRotateY += 2.0; // 控制Y轴自转速度
+                                cube.style.transform = `rotateX(${autoRotateX}deg) rotateY(${autoRotateY}deg)`;
+                            }
+                        }, 30);
+                    }
+
+                    // 停止自动旋转
+                    function stopAutoRotate() {
+                        clearInterval(autoRotateInterval);
+                    }
+
+                    // 处理触摸和鼠标的开始事件
+                    function startDrag(event) {
+                        isDragging = true;
+                        startX = event.touches ? event.touches[0].clientX : event.clientX;
+                        startY = event.touches ? event.touches[0].clientY : event.clientY;
+                        stopAutoRotate(); // 停止自动旋转
+                        cube.style.transition = "none";
+                        document.addEventListener('mousemove', drag);
+                        document.addEventListener('mouseup', endDrag);
+                        document.addEventListener('touchmove', drag);
+                        document.addEventListener('touchend', endDrag);
+                    }
+
+                    // 处理拖动事件
+                    function drag(event) {
+                        const x = event.touches ? event.touches[0].clientX : event.clientX;
+                        const y = event.touches ? event.touches[0].clientY : event.clientY;
+                        const deltaX = x - startX;
+                        const deltaY = y - startY;
+                        rotateX = currentX + deltaY * 0.5;
+                        rotateY = currentY + deltaX * 0.5;
+                        cube.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                    }
+
+                    // 处理结束事件
+                    function endDrag() {
+                        isDragging = false;
+                        currentX = rotateX;
+                        currentY = rotateY;
+                        cube.style.transition = "transform 0.2s ease";
+                        startAutoRotate(); // 重新开始自动旋转
+                        document.removeEventListener('mousemove', drag);
+                        document.removeEventListener('mouseup', endDrag);
+                        document.removeEventListener('touchmove', drag);
+                        document.removeEventListener('touchend', endDrag);
+                    }
+
+                    // 添加事件监听器
+                    cube.addEventListener('mousedown', startDrag);
+                    cube.addEventListener('touchstart', startDrag);
+
+                    // 开始自动旋转
+                    startAutoRotate();
+                </script>
+            </body>
+
+
+
+        </div>
+        <div class="grid-item">
+
+
+            <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
+            <style>
+                .container {
+                    font-family: 'href', sans-serif;
+                    margin: 0;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    overflow: hidden;
+                    perspective: 800px;
+                }
+
+                canvas {
+                    display: block;
+                    position: relative;
+                    width: 18rem;
+                    height: 4rem;
+                    padding: 1rem 0
+                }
+
+                .keyboard {
+                    position: relative;
+                    width: 18rem;
+                    height: 6rem;
+                    margin-bottom: 1rem
+                }
+
+                .key {
+                    flex: 1 1 0;
+                    border-radius: 0 0 .25rem .25rem;
+                    box-sizing: border-box;
+                    transition: .1s ease;
+                    text-align: center
+                }
+
+                .black-keys,
+                .white-keys {
+                    display: flex;
+                    flex-direction: row
+                }
+
+                .white-keys .key {
+                    box-shadow: 0 0 0 1px #d6d6d6;
+                    background-color: #fff;
+                    padding-top: 4.5rem;
+                    color: #666
+                }
+
+                .black-keys .key {
+                    margin: 0 .25rem;
+                    background-color: #333;
+                    padding-top: 2.5rem;
+                    color: #ddd
+                }
+            </style>
+            </head>
+
+            <body>
+                <div class="container"><canvas id="scope"></canvas><canvas id="spectrum"></canvas>
+                    <div class="keyboard">
+                        <div class="black-keys">
+                            <div class="space"></div>
+                            <div id="w" class="key">W</div>
+                            <div id="e" class="key">E</div>
+                            <div class="big-space"></div>
+                            <div id="t" class="key">T</div>
+                            <div id="y" class="key">Y</div>
+                            <div id="u" class="key">U</div>
+                            <div class="big-space"></div>
+                            <div id="o" class="key">O</div>
+                            <div id="p" class="key">P</div>
+                            <div class="space"></div>
+                        </div>
+                        <div class="white-keys">
+                            <div id="a" class="key">A</div>
+                            <div id="s" class="key">S</div>
+                            <div id="d" class="key">D</div>
+                            <div id="f" class="key">F</div>
+                            <div id="g" class="key">G</div>
+                            <div id="h" class="key">H</div>
+                            <div id="j" class="key">J</div>
+                            <div id="k" class="key">K</div>
+                            <div id="l" class="key">L</div>
+                            <div id=";" class="key">:</div>
+                        </div>
+                    </div>
+                </div>
+                <script type="module">
+                    import e from "https://cdn.skypack.dev/dot-audio@0.1.0";
+                    let AC = new AudioContext, synth = new e.PolySynth(AC, { waveform: "square", filterFrequency: 0, filterAmount: 1e3, filterDecay: .4, filterSustain: 0, filterRelease: .1 }), reverb = new e.Reverb(AC, { amount: .15 }), analyser = AC.createAnalyser(); e.chain(synth, reverb, AC.destination), reverb.connect(analyser); let addClass = (e, t) => { e.className.includes(t) || (e.className += ` ${t}`) }, removeClass = (e, t) => { e.className.includes(t) && (e.className = e.className.replace(` ${t}`, "")) }, keyboard = new e.Keyboard({ onPress(e, t) { "suspended" === AC.state && AC.resume(), addClass(document.getElementById(t.key), "active"), synth.noteOn(`${e.note}${e.octave}`) }, onRelease(e, t) { removeClass(document.getElementById(t.key), "active"), synth.noteOff(`${e.note}${e.octave}`) } }); keyboard.on(); let scopeCtx = document.getElementById("scope").getContext("2d"), spectCtx = document.getElementById("spectrum").getContext("2d"); scopeCtx.canvas.width = 2 * scopeCtx.canvas.clientWidth, spectCtx.canvas.width = 2 * spectCtx.canvas.clientWidth; let drawSpectrum = (e, t) => { let a = t.canvas.width, n = t.canvas.height, s = new Uint8Array(e.frequencyBinCount), l = n / 260; e.getByteFrequencyData(s), t.fillStyle = "rgba(0, 0, 0)", t.fillRect(0, 0, a, n), t.lineWidth = 4, t.strokeStyle = "rgb(255, 255, 255)", t.beginPath(); for (let r = 0; r < a; r++)t.lineTo(120 * Math.log(r) - 140, n - s[r] * l); t.stroke() }, drawScope = (e, t) => { let a = t.canvas.width, n = t.canvas.height, s = new Uint8Array(e.frequencyBinCount), l = n / 256, r = 0; for (e.getByteTimeDomainData(s), t.fillStyle = "rgba(0, 0, 0)", t.fillRect(0, 0, a, n), t.lineWidth = 4, t.strokeStyle = "rgb(255, 255, 255)", t.beginPath(); s[r++] - 128 > 0 && r <= a;); for (r >= a && (r = 0); s[r++] - 128 < .5 && r <= a;); r >= a && (r = 0); for (let c = r; c < s.length && c - r < a; c++)t.lineTo(c - r, 1 * n - s[c] * l); t.stroke() }, draw = () => { drawSpectrum(analyser, spectCtx), drawScope(analyser, scopeCtx), requestAnimationFrame(draw) }; draw();
+                </script>
+            </body>
+
+
+        </div>
+    </div>
+    <center>
+        <header>
+            <div class="image-container">
+                <!-- 		    <img src="songlist.png" alt="ysFu center image" width="100%" height="100%"> -->
+                <img src="asset/music-available-apple-spotify-yt-str.png" alt="ysFu center image" width="80%"
+                    height="80%">
+            </div>
+        </header>
+    </center>
+
+</body>
+
+</html>
