@@ -1,14 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html> <!-- 宣告 HTML 文件的類型為 HTML5 -->
+<html lang="en"> <!-- 設定語言為英文 -->
 
 <head>
-    <meta charset="UTF-8">
-    <title style="font-family: 'href', sans-serif;">ysFu official</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta property="og:image" content="ysFu-center.png">
-    <meta property="og:title" content="ysFu Official" style="font-family: 'href', sans-serif;">
-    <meta property="og:description" content="來自Taiwan台灣的鼓手獨奏Project">
+    <meta charset="UTF-8"> <!-- 設定字符編碼為 UTF-8 -->
+    <title style="font-family: 'href', sans-serif;">ysFu official</title> <!-- 網頁標題（style 寫在這裡其實無效） -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" /> <!-- 響應式設計：讓畫面適應各種裝置 -->
+    <meta property="og:image" content="ysFu-center.png"> <!-- 社群分享時顯示的圖片 -->
+    <meta property="og:title" content="ysFu Official" style="font-family: 'href', sans-serif;"> <!-- 社群分享標題 -->
+    <meta property="og:description" content="來自Taiwan台灣的鼓手獨奏Project"> <!-- 社群分享的描述 -->
+
     <style>
+        /* 背景動畫的定義 */
         @keyframes gradientAnimation {
             0% {
                 background-position: 0% 50%;
@@ -23,38 +25,39 @@
             }
         }
 
-        /* 将动画应用于背景 */
+        /* 設定 body 背景樣式與動畫 */
         body {
-            margin: 0;
-            padding: 20px;
+            margin: 0; /* 去除邊距 */
+            padding: 20px; /* 內距 */
             box-sizing: border-box;
-            background: linear-gradient(90deg, #dddddd, #f7ff8f, #bb81fb, #444444);
-            background-size: 400% 400%;
-            animation: gradientAnimation 5s linear infinite;
+            background: linear-gradient(90deg, #dddddd, #f7ff8f, #bb81fb, #444444); /* 漸層背景 */
+            background-size: 400% 400%; /* 背景放大，產生動畫效果 */
+            animation: gradientAnimation 5s linear infinite; /* 套用背景動畫，每 5 秒循環一次 */
         }
 
-        /* 2*3 */
+        /* 建立 2x3 的網格排版 */
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            grid-template-rows: repeat(3, 1fr);
-            gap: 20px;
-            height: 150vh;
+            grid-template-columns: repeat(2, 1fr); /* 2 欄 */
+            grid-template-rows: repeat(3, 1fr); /* 3 列 */
+            gap: 20px; /* 元素間距 */
+            height: 150vh; /* 設定容器高度為 1.5 倍視窗高度 */
         }
 
         .grid-item {
-            background: #a4a39f;
+            background: #a4a39f; /* 背景色 */
             padding: 20px;
-            overflow: hidden;
-            border-radius: 10px;
+            overflow: hidden; /* 超出部分隱藏 */
+            border-radius: 10px; /* 圓角 */
         }
 
         iframe {
             width: 100%;
             height: 100%;
-            border: 0;
+            border: 0; /* 移除邊框 */
         }
 
+        /* 音樂集列表樣式 */
         .episodes {
             display: flex;
             flex-direction: column;
@@ -68,13 +71,13 @@
             padding: .8rem 1rem;
             border-radius: 10px;
             border: 0;
-            background: #191414;
+            background: #191414; /* Spotify 深色背景 */
             color: #fff;
-            cursor: pointer;
+            cursor: pointer; /* 鼠標變手指 */
         }
 
         .episode:hover {
-            background: #1Db954;
+            background: #1Db954; /* 滑過變成 Spotify 綠色 */
         }
 
         header {
@@ -96,6 +99,7 @@
             object-fit: contain;
         }
 
+        /* 自訂字體：href 對應本地字型檔 */
         @font-face {
             font-family: 'href';
             src: url('superg_.ttf') format('opentype');
@@ -103,41 +107,39 @@
             font-style: normal;
         }
 
+        /* 自訂字體：SweiSans CJK，來自網路字體服務 */
         @font-face {
             font-family: SweiSansCJKjp-Regular;
-            src: url(https://cdn.jsdelivr.net/gh/max32002/swei-sans@2.102/WebFont/CJK%20JP/SweiSansCJKjp-Regular.woff2) format("woff2"), url(https://cdn.jsdelivr.net/gh/max32002/swei-sans@2.102/WebFont/CJK%20JP/SweiSansCJKjp-Regular.woff) format("woff");
+            src: url(https://cdn.jsdelivr.net/gh/max32002/swei-sans@2.102/WebFont/CJK%20JP/SweiSansCJKjp-Regular.woff2) format("woff2"),
+                 url(https://cdn.jsdelivr.net/gh/max32002/swei-sans@2.102/WebFont/CJK%20JP/SweiSansCJKjp-Regular.woff) format("woff");
         }
 
+        /* p 標籤樣式 */
         p {
             font-family: 'SweiSansCJKjp-Regular', sans-serif;
             color: black;
             font-weight: bold;
-
-            line-height: 1.6;
-            /* 行距 */
+            line-height: 1.6; /* 行高 */
             word-wrap: break-word;
-            /* 自动换行 */
             white-space: normal;
-            /* 控制空白和换行 */
         }
 
+        /* 超連結樣式 */
         a {
             font-family: 'href', sans-serif;
             color: white;
-            /* 设置超链接为白色 */
             text-decoration: none;
-            /* 去除下划线 */
         }
 
         a:hover {
-            color: #d4d7a9;
-            /* 设置鼠标悬停时的颜色，例如淡白色 */
+            color: #d4d7a9; /* 滑鼠滑過顏色變淡 */
         }
 
+        /* RWD：平板以下顯示設定 */
         @media (max-width: 768px) {
             .grid-container {
-                grid-template-columns: 1fr;
-                grid-template-rows: repeat(4, 1fr);
+                grid-template-columns: 1fr; /* 變為單欄 */
+                grid-template-rows: repeat(4, 1fr); /* 增加行數 */
                 height: auto;
             }
 
@@ -151,6 +153,7 @@
             }
         }
 
+        /* RWD：手機顯示設定 */
         @media (max-width: 480px) {
             body {
                 padding: 10px;
@@ -168,33 +171,35 @@
 </head>
 
 <body>
-    <center>
+    <center> <!-- 置中內容（不推薦用法，但仍有效） -->
         <header>
             <div class="image-container">
                 <script>
-                    /* 渐变颜色组合  */
+                    // 定義三組背景顏色漸層
                     const backgrounds = [
-                        // 'linear-gradient(90deg, #f7ff8f, #dddddd, #777777, #bb81fb)',
                         'linear-gradient(90deg, #dddddd, #f7ff8f, #bb81fb, #444444)',
                         'linear-gradient(90deg, #ff8fd1, #ffbdae, #fbf783, #81ffdd, #7eaeff, #cb9cff)',
                         'linear-gradient(90deg, rgb(103 103 94), rgb(185 185 167), rgb(122, 122, 118), rgb(85 85 79), rgb(219 219 207))'
                     ];
                     let currentIndex = 0;
 
+                    // 定義更換背景的函數
                     window.changeBackground = function changeBackground() {
                         currentIndex = (currentIndex + 1) % backgrounds.length;
                         document.body.style.background = backgrounds[currentIndex];
-                        document.body.style.backgroundSize = '400% 400%'; /* 扩大背景大小以实现流畅的移动效果 */
-                        document.body.style.animation = 'gradientAnimation 5s linear infinite'; /* 5秒无限循环动画 */
+                        document.body.style.backgroundSize = '400% 400%';
+                        document.body.style.animation = 'gradientAnimation 5s linear infinite';
                     }
                 </script>
+                <!-- 點擊圖片會切換背景 -->
                 <img src="ysFu-center-black.png" alt="ysFu center image" width="60%" height="60%"
                     onclick="changeBackground()">
-
             </div>
         </header>
     </center>
+
     <center>
+        <!-- 音樂人簡介段落 -->
         <p style="color:black;font-weight:bold;">
             來自M的織女kiki
         </p>
@@ -213,6 +218,7 @@
     </center>
 
     <center>
+        <!-- 第二張圖片，裝飾或空白占位 -->
         <header>
             <div class="image-container">
                 <img src="transparent.png" alt="ysFu center image" width="30%" height="30%">
@@ -220,37 +226,26 @@
         </header>
     </center>
 
+    <!-- 六格的內容區塊 -->
     <div class="grid-container">
         <div class="grid-item">
+            <!-- 嵌入其他網站 -->
             <iframe src="https://bookyourlifeblog.wordpress.com/" width="100%" height="800px" frameborder="0"></iframe>
-
         </div>
 
-        <div class="grid-item">
-            <!--             <div id="embed-iframe"></div> -->
-            
-        </div>
-
-        <div class="grid-item">
-            
-        </div>
-
-        <div class="grid-item">
-            
-        </div>
-        <div class="grid-item">
-
-        </div>
-        <div class="grid-item">
-        </div>
-
+        <!-- 其餘五格目前留空 -->
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
     </div>
+
     <center>
+        <!-- 音樂平台圖示區 -->
         <header>
             <div class="image-container">
-                <!-- 		    <img src="songlist.png" alt="ysFu center image" width="100%" height="100%"> -->
-                <img src="asset/music-available-apple-spotify-yt-str.png" alt="ysFu center image" width="80%"
-                    height="80%">
+                <img src="asset/music-available-apple-spotify-yt-str.png" alt="ysFu center image" width="80%" height="80%">
             </div>
         </header>
     </center>
