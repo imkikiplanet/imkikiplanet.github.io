@@ -227,6 +227,13 @@
         </header>
     </center>
 
+    <center>
+        <h2>輸入你的生日，找出你的星座！</h2>
+        <input type="date" id="birthdate">
+        <button id="zodiacButton">🔮 點我尋找星座</button>
+        <div id="result"></div>
+    </center>
+
     <!-- 六格的內容區塊 -->
     <div class="grid-container">
         <div class="grid-item">
@@ -287,3 +294,50 @@
 </body>
 
 </html>
+
+<script>
+    // 這段程式碼會讓按鈕和你的 API 互相溝通
+    // 請確保你的 API 服務已經用 `uvicorn index:app --reload --port 5000` 啟動了！
+
+    // 取得網頁上的元件
+    const birthdateInput = document.getElementById('birthdate');
+    const zodiacButton = document.getElementById('zodiacButton');
+    const resultDiv = document.getElementById('result');
+
+    // 當按鈕被點擊時，執行這段程式碼
+    zodiacButton.addEventListener('click', function() {
+        // 取得使用者輸入的日期
+        const birthdate = birthdateInput.value;
+
+        // 檢查使用者有沒有輸入日期
+        if (!birthdate) {
+            resultDiv.textContent = '請先選擇你的生日喔！';
+            return;
+        }
+
+        // 這就是向後端發出請求的地方！
+        // 就像是從你的網頁這個「前端」，寄信給你的 API 這個「後端」
+        fetch('http://127.0.0.1:5000/get_zodiac', {
+            method: 'POST', // 告訴後端這是要傳送資料
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ date: birthdate }) // 把生日資料放進信封
+        })
+        .then(response => response.json()) // 把後端的回信（JSON格式）拆開來
+        .then(data => {
+            // 如果後端回傳成功，就把星座結果顯示出來
+            if (data.zodiac) {
+                resultDiv.textContent = `你是 ${data.zodiac}！`;
+            } else if (data.error) {
+                resultDiv.textContent = `出錯了... ${data.error}`;
+            }
+        })
+        .catch(error => {
+            // 如果過程中出了什麼問題，就顯示錯誤訊息
+            console.error('哎呀，發生錯誤：', error);
+            resultDiv.textContent = '發生連線錯誤，請檢查後端是否啟動。';
+        });
+    });
+</script>
+
