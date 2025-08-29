@@ -1,11 +1,5 @@
-# 使用官方 Python 3.11 slim 版本作為基底
-FROM python:3.11-slim
+# 使用官方的 Nginx 基礎映像
+FROM nginx:alpine
 
-# 設定容器內工作目錄
-WORKDIR /app
-
-# 複製當前資料夾所有檔案到容器內
-COPY . /app
-
-# 啟動 Python HTTP Server
-CMD ["python", "-m", "http.server", "8080"]
+# 複製你的網頁檔案到 Nginx 的預設目錄
+COPY . /usr/share/nginx/html

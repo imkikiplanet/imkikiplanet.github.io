@@ -317,7 +317,7 @@
 
         // 這就是向後端發出請求的地方！
         // 就像是從你的網頁這個「前端」，寄信給你的 API 這個「後端」
-        fetch('http://127.0.0.1:5000/get_zodiac', {
+        fetch('http://localhost:8080/get_zodiac', {
             method: 'POST', // 告訴後端這是要傳送資料
             headers: {
                 'Content-Type': 'application/json'
